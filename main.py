@@ -118,8 +118,8 @@ def main() -> None:
 
     try:
         application.run_polling(drop_pending_updates=True)
-    except Exception as e:
-        logger.error(f"机器人运行失败: {e}")
+    except Exception:
+        logger.exception("机器人运行失败")
     finally:
         application.bot_data['db'].close()
         logger.info("机器人已停止")
